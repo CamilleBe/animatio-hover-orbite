@@ -32,9 +32,10 @@
 
     /* Vous pouvez ajuster ou supprimer ces styles si vous préférez contrôler tout via JS */
     .service-card.large {
-        width: 1540px;
-        height: 1075px;
-        /*z-index: 10;*/
+        width: 90%;
+        height: 700px;
+        z-index: 10;
+        position: relative;
     }
 
     .service-card p {
@@ -92,6 +93,10 @@
         font-weight: 600;
     }
 
+    .phrase-bleu {
+        margin-top: 10px;
+     }
+
 
 </style>
 
@@ -123,15 +128,13 @@
         <h3>01- Design en Apesanteur</h3>
         <p>
             <span class="sous-titre">Là où la Créativité Rencontre l'Infini</span>
-            <br><br>
+            <br>
             <span class="phrase-bleu">Chez Orbite, notre approche du design graphique est comme une danse dans l'espace sans gravité - libre, audacieuse et sans limites.</span>
         </p>
 
-        <br>
-
         <p>Nous comprenons que le <b>design</b> est bien plus qu'une simple esthétique. C'est un langage visuel qui <b>communique votre message au monde.</b> Notre mission est de créer des designs qui ne sont pas seulement beaux, mais qui racontent aussi votre histoire, reflètent vos valeurs et captent <b>l'essence</b> de votre marque.</p>
 
-        <br><br>
+        <br>
 
         <div class="flex centre">
             <div class="text">
@@ -139,26 +142,26 @@
                     <b>Nos services de design :</b>
 
                 <ul>
-                <li><b>Logo</b> : Un <span class="semi">symbole distinctif</span> qui représente visuellement et instantanément votre marque ou entreprise.</li><br>
+                    <li><b>Logo</b> : Un <span class="semi">symbole distinctif</span> qui représente visuellement et instantanément votre marque ou entreprise.</li><br>
 
-                <li><b>Wireframe</b> : Un <span class="semi">plan simple</span> et basique de votre <span class="semi">site web</span>, montrant l'organisation des éléments sans détails de design.</li><br>
+                    <li><b>Wireframe</b> : Un <span class="semi">plan simple</span> et basique de votre <span class="semi">site web</span>, montrant l'organisation des éléments sans détails de design.</li><br>
 
-                <li><b>Maquette de site web</b> : Un <span class="semi">aperçu détaillé</span> et visuel de votre futur <span class="semi">site web</span>, avec couleurs, images et disposition.</li><br>
+                    <li><b>Maquette de site web</b> : Un <span class="semi">aperçu détaillé</span> et visuel de votre futur <span class="semi">site web</span>, avec couleurs, images et disposition.</li><br>
 
                     <li><b>Identité visuelle & Charte graphique</b> : L'<span class="semi">ensemble des éléments graphiques</span (couleurs, polices, images) qui définissent l'apparence et le style de votre marque.</li>
                 </ul>
 
                 </p>
 
-                <br><br>
+                <br>
 
                 <p>
                     <b>Pourquoi choisir 'Design en Apesanteur' chez Orbite ?</b>
 
                 <ul>
-                <li><b>Créativité sans limites</b> : Nous repoussons les frontières du conventionnel pour offrir des solutions <span class="semi">créatives uniques.</span></li> <br>
+                    <li><b>Créativité sans limites</b> : Nous repoussons les frontières du conventionnel pour offrir des solutions <span class="semi">créatives uniques.</span></li> <br>
 
-                <li><b>Approche personnalisée</b> : Chaque projet est une nouvelle aventure. Nous travaillons en étroite collaboration avec vous pour transformer votre vision en <span class="semi">réalité visuelle.</span></li>
+                    <li><b>Approche personnalisée</b> : Chaque projet est une nouvelle aventure. Nous travaillons en étroite collaboration avec vous pour transformer votre vision en <span class="semi">réalité visuelle.</span></li>
                 </ul>
 
                 </p>
@@ -183,16 +186,68 @@
 
 
 <script>
-    document.getElementById('serviceCard').addEventListener('mouseover', function() {
-        this.classList.add('large'); // Agrandit la carte
-        this.querySelector('.additional-content').style.display = 'block'; // Affiche le contenu supplémentaire
-        this.querySelector('.service-card').style.display = 'none'; // Cache le contenu
+    //document.getElementById('serviceCard').addEventListener('mouseover', function() {
+
+        //console.log('Mouseover sur serviceCard'); // Débogage
+
+        //this.classList.add('large'); // Agrandit la carte
+        //this.querySelector('.additional-content').style.display = 'block'; // Affiche le contenu supplémentaire
+        //this.querySelector('.service-card').style.display = 'none'; // Cache le contenu initial
+
+
+        /*console.log('service-card doit être masqué et additional-content doit être affiché');
 
     });
 
-        document.getElementById('serviceCard').addEventListener('mouseout', function() {
-        this.classList.remove('large'); // Réduit la carte
-        this.querySelector('.additional-content').style.display = 'none'; // Cache le contenu supplémentaire
+    document.getElementById('serviceCard').addEventListener('mouseout', function() {*/
+        //console.log('Mouseout sur serviceCard'); // Débogage
+
+        //this.classList.remove('large'); // Réduit la carte
+        //this.querySelector('.additional-content').style.display = 'block'; // Cache le contenu supplémentaire
+        //this.querySelector('.service-card').style.display = 'block'; // affiche le contenu initial
+
+        /*console.log('service-carddoit être affiché et additional-content doit être masqué');
+
+    });*/
+
+    /*document.getElementById('serviceCard').addEventListener('mouseover', function() {
+        console.log('Mouseover sur serviceCard');
+        let initialContent = this.querySelector('.initial-content');
+        let additionalContent = this.querySelector('.additional-content');
+
+        if (initialContent && additionalContent) {
+            console.log('Éléments trouvés');
+            initialContent.style.display = 'none';
+            additionalContent.style.display = 'block';
+        } else {
+            console.log('Élément non trouvé:', initialContent, additionalContent);
+        }
+    });*/
+
+
+
+    let serviceCard = document.getElementById('serviceCard');
+    let initialContent = serviceCard.querySelector('.initial-content');
+    let additionalContent = serviceCard.querySelector('.additional-content');
+
+    serviceCard.addEventListener('mouseover', function() {
+        if (initialContent && additionalContent) {
+            initialContent.style.display = 'none';
+            additionalContent.style.display = 'block';
+            this.classList.add('large');
+        } else {
+            console.log('Élément non trouvé:', initialContent, additionalContent);
+        }
+    });
+
+    serviceCard.addEventListener('mouseout', function() {
+        if (initialContent && additionalContent) {
+            initialContent.style.display = 'block';
+            additionalContent.style.display = 'none';
+            this.classList.remove('large');
+        } else {
+            console.log('Élément non trouvé:', initialContent, additionalContent);
+        }
     });
 
 </script>
